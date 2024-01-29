@@ -1,8 +1,17 @@
-const pizzas =[
+const pizzas = [
+  {
+    name: "Texas BBQ Chicken",
+    varients: ["Regular", "Medium", "Large"],
+    prices: [{ Regular: 899, Medium: 1799, Large: 2699 }],
+    category: "Nonveg",
+    image: "https://images.dominos.co.in/srilanka/PIZ0001.jpg",
+    description:
+      "Peppered Texas BBQ Chicken, Mango BBQ sauce, Herb Tomato blend, 100% real mozzarella",
+  },
   {
     name: "PEPPER BARBECUE CHICKEN",
     varients: ["small", "medium", "large"],
-    prices: [{ small: 1000, medium: 1800, large: 2750, }],
+    prices: [{ small: 1000, medium: 1800, large: 2750 }],
     category: "Nonveg",
     image: "https://www.dominos.co.in/files/items/Pepper_Barbeque.jpg",
     description: "Pepper Barbecue Chicken and Cheese",
@@ -10,7 +19,7 @@ const pizzas =[
   {
     name: "BARBECUE CHICKEN",
     varients: ["small", "medium", "large"],
-    prices: [{ small: 1000, medium: 1800, large: 2750, }],
+    prices: [{ small: 1000, medium: 1800, large: 2750 }],
     category: "Nonveg",
     image: "https://www.dominos.co.in/files/items/Pepper_Barbeque.jpg",
     description: "Barbecue Chicken and Cheese",
@@ -18,7 +27,7 @@ const pizzas =[
   {
     name: "PEPPER CHICKEN",
     varients: ["small", "medium", "large"],
-    prices: [{ small: 1000, medium: 1800, large: 2750, }],
+    prices: [{ small: 1000, medium: 1800, large: 2750 }],
     category: "Nonveg",
     image: "https://www.dominos.co.in/files/items/Pepper_Barbeque.jpg",
     description: "Pepper Chicken and Cheese",
@@ -26,7 +35,7 @@ const pizzas =[
   {
     name: "NON VEG SUPREME",
     varients: ["small", "medium", "large"],
-    prices: [{ small: 1000, medium: 1800, large: 2750, }],
+    prices: [{ small: 1000, medium: 1800, large: 2750 }],
     category: "Nonveg",
     image: "https://www.dominos.co.in/files/items/Pepper_Barbeque.jpg",
     description: "Pepper Barbecue Chicken and Cheese",
@@ -34,7 +43,7 @@ const pizzas =[
   {
     name: "CHEESE PIZZA",
     varients: ["small", "medium", "large"],
-    prices: [{ small: 1000, medium: 1800, large: 2750, }],
+    prices: [{ small: 1000, medium: 1800, large: 2750 }],
     category: "Veg",
     image: "https://www.dominos.co.in/files/items/Pepper_Barbeque.jpg",
     description: "Cheese",
@@ -42,7 +51,7 @@ const pizzas =[
   {
     name: "PORK PIZZA",
     varients: ["small", "medium", "large"],
-    prices: [{ small: 1000, medium: 1800, large: 2750, }],
+    prices: [{ small: 1000, medium: 1800, large: 2750 }],
     category: "Nonveg",
     image: "https://www.dominos.co.in/files/items/Pepper_Barbeque.jpg",
     description: "Pork and Cheese",

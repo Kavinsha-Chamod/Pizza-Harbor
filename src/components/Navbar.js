@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Navbar() {
   return (
-    <div> 
+    <div className="sticky-div"> 
       <nav className="navbar navbar-expand-lg shadow-lg p-3 mb-5 bg-white rounded">
         <a className="navbar-brand" href="#">
         <img src="../assets/Images/pizzaHarbor.png" alt="PIZZA HARBOR" />
