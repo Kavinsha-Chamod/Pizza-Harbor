@@ -14,12 +14,14 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
 .nav-link{
   color: black !important;
 }
 .navbar-nav{
   margin-left: auto !important;
+  padding-right: 10px !important;
+  padding-right: 10px !important;
+
 }
 .sticky-div {
   position: sticky;
@@ -33,6 +35,11 @@ h1{
 .img-fluid{
   height: 200px !important;
   width: 400px !important;
+}
+.logo{
+  padding-left: 10px;
+  height: 50px;
+  width: 200px;;
 }
 .modal-image{
   height: 250px !important;
