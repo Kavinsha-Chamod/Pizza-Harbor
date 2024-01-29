@@ -1,0 +1,51 @@
+const pizzas =[
+  {
+    name: "PEPPER BARBECUE CHICKEN",
+    varients: ["small", "medium", "large"],
+    prices: [{ small: 1000, medium: 1800, large: 2750, }],
+    category: "Nonveg",
+    image: "https://www.dominos.co.in/files/items/Pepper_Barbeque.jpg",
+    description: "Pepper Barbecue Chicken and Cheese",
+  },
+  {
+    name: "BARBECUE CHICKEN",
+    varients: ["small", "medium", "large"],
+    prices: [{ small: 1000, medium: 1800, large: 2750, }],
+    category: "Nonveg",
+    image: "https://www.dominos.co.in/files/items/Pepper_Barbeque.jpg",
+    description: "Barbecue Chicken and Cheese",
+  },
+  {
+    name: "PEPPER CHICKEN",
+    varients: ["small", "medium", "large"],
+    prices: [{ small: 1000, medium: 1800, large: 2750, }],
+    category: "Nonveg",
+    image: "https://www.dominos.co.in/files/items/Pepper_Barbeque.jpg",
+    description: "Pepper Chicken and Cheese",
+  },
+  {
+    name: "NON VEG SUPREME",
+    varients: ["small", "medium", "large"],
+    prices: [{ small: 1000, medium: 1800, large: 2750, }],
+    category: "Nonveg",
+    image: "https://www.dominos.co.in/files/items/Pepper_Barbeque.jpg",
+    description: "Pepper Barbecue Chicken and Cheese",
+  },
+  {
+    name: "CHEESE PIZZA",
+    varients: ["small", "medium", "large"],
+    prices: [{ small: 1000, medium: 1800, large: 2750, }],
+    category: "Veg",
+    image: "https://www.dominos.co.in/files/items/Pepper_Barbeque.jpg",
+    description: "Cheese",
+  },
+  {
+    name: "PORK PIZZA",
+    varients: ["small", "medium", "large"],
+    prices: [{ small: 1000, medium: 1800, large: 2750, }],
+    category: "Nonveg",
+    image: "https://www.dominos.co.in/files/items/Pepper_Barbeque.jpg",
+    description: "Pork and Cheese",
+  },
+];
+export default pizzas;
