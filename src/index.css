@@ -63,3 +63,21 @@ select{
   justify-content: center;
   text-align: justify;
 }
+.text{
+  text-align: left;
+  margin: 10px !important;
+  width: 100%;
+}
+.fa-plus-circle{
+  color: green;
+  margin-right: 15px;
+  margin-left: 15px;
+}
+.fa-minus-circle{
+  color: red;
+  margin-left: 15px;
+  margin-bottom: 10px;
+}
+.fa-trash{
+  color: red !important;
+}
