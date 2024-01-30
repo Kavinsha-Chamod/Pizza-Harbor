@@ -1,9 +1,12 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import 'bootstrap';
 import Navbar from "./components/Navbar";
 import HomeScreen from "./screens/HomeScreen";
 import { BrowserRouter, Routes, Route, Link, Switch } from "react-router-dom";
 import CartScreen from "./screens/CartScreen";
+import RegisterScreen from "./screens/RegisterScreen";
+import LoginScreen from "./screens/LoginScreen";
 
 function App() {
   return (
@@ -13,6 +16,8 @@ function App() {
         <Routes>
           <Route path="/" element={<HomeScreen />} />
           <Route path="/cart" element={<CartScreen />} />
+          <Route path="/register" element={<RegisterScreen />} />
+          <Route path="/login" element={<LoginScreen />} />
         </Routes>
       </BrowserRouter>
     </div>
