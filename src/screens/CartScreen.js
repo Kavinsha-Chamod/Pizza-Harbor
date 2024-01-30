@@ -6,7 +6,7 @@ import Checkout from "../components/Checkout";
 export default function CartScreen() {
   const cartstate = useSelector((state) => state.cartReducer);
   const cartItems = cartstate.cartItems;
-  var subTotal = cartItems.reduce((x , item)=> x+item.price, 0)
+  var subtotal = cartItems.reduce((x , item)=> x+item.price, 0)
   const dispatch = useDispatch()
 
   return (
@@ -40,8 +40,8 @@ export default function CartScreen() {
           })}
         </div>
         <div className="col-md-4 text-right">
-        <h2 style={{fontSize:'45px'}}>Sub Total : LKR.{subTotal}</h2>
-        <Checkout subTotal={subTotal}/>
+        <h2 style={{fontSize:'45px'}}>Sub Total : LKR.{subtotal}</h2>
+        <Checkout subtotal={subtotal}/>
         </div>
       </div>
     </div>

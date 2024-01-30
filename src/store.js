@@ -12,7 +12,7 @@ const finalReducer = combineReducers({
   cartReducer: cartReducer,
   registerUserReducer: registerUserReducer,
   loginUserReducer: loginUserReducer,
-  placeOrderReducer: placeOrderReducer,
+  placeOrderReducer: placeOrderReducer
 });
 
 const cartItems = localStorage.getItem("cartItems")
