@@ -114,3 +114,26 @@ select{
   width: 350px;
   margin: 10px;
 }
+.adminfunctions{
+  padding: 10px;
+  background-color: rgb(0, 0, 119);
+}
+.adminfunctions li{
+  list-style-type: none !important;
+  display: inline !important;
+}
+.adminfunctions li a{
+  color: white !important;
+  padding: 10px;
+  margin-left: 30px;
+  margin-right: 30px;
+  text-decoration: none !important;
+}
+td, th, tr{
+  text-align: left;
+}
+.ttable{
+  display: flex;
+  margin-left: 60px;
+  margin-right: 60px;
+}

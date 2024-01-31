@@ -15,9 +15,7 @@ export default function OrdersScreen() {
   useEffect(() => {
     dispatch(getUserOrders());
   }, [dispatch]);
-  /******************************************************* */
-
-  /*********************************************************/
+ 
   return (
     <div>
       <h2 style={{ fontSize: "35px" }}>MY ORDERS</h2>
@@ -38,9 +36,8 @@ export default function OrdersScreen() {
                   {order.orderItems.map((item) => (
                     <div key={item._id}>
                       <p>
-                        {item.name}
-                        <br />
-                        {item.varient} * {item.quantity}
+                        {item.name} [{item.varient}]<br/>
+                        Qty - {item.quantity}
                         <br />
                         Total = LKR.{item.price}
                       </p>

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { UseDispatch, useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Pizza from "../components/Pizza";
 import { getAllPizzas } from "../actions/pizzaActions";
 import Loading from "../components/Loading";
