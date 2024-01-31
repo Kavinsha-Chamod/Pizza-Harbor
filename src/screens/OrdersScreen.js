@@ -5,8 +5,8 @@ import Loading from "../components/Loading";
 import Error from "../components/Error";
 
 export default function OrdersScreen() {
-  const dispatch = useDispatch();
-  const orderstate = useSelector((state) => state.getUserOrdersReducer);
+  const dispatch = useDispatch()
+  const orderstate = useSelector(state => state.getUserOrdersReducer);
   const { orders, error, loading } = orderstate;
 
   console.log(orderstate);

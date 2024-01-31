@@ -13,6 +13,8 @@ import UserLists from "./screens/UserLists";
 import Orderslist from "./screens/Orderslist";
 import PizzasList from "./screens/PizzasList";
 import Addpizza from "./screens/Addpizza";
+import Editpizza from "./screens/Editpizza";
+
 
 function App() {
   return (
@@ -31,6 +33,7 @@ function App() {
           <Route path="/admin/orderslist" element={<Orderslist />} />
           <Route path="/admin/pizzaslist" element={<PizzasList />} />
           <Route path="/admin/addpizza" element={<Addpizza />} />
+          <Route path="/admin/editpizza/:pizzaid" element={<Editpizza/>} />
         </Routes>
       </BrowserRouter>
     </div>

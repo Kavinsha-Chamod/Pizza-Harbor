@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Loading from "../components/Loading";
 import Error from "../components/Error";
 import { getAllPizzas } from '../actions/pizzaActions';
+import { Link } from 'react-router-dom';
 
 export default function PizzasList() {
   const dispatch = useDispatch();
@@ -39,9 +40,9 @@ export default function PizzasList() {
           </td>
           <td>{pizza.category}</td>
           <td>
-          <i className='fa fa-trash m-2'></i>
-          <i className='fa fa-edit m-2'></i>
-          </td>
+  <i className='fa fa-trash m-2'></i>
+  <Link to={`/admin/editpizza/${pizza._id}`}><i className='fa fa-edit m-2'></i></Link>
+</td>
           </tr>
           
       })}

@@ -137,3 +137,6 @@ td, th, tr{
   margin-left: 60px;
   margin-right: 60px;
 }
+.text-right{
+  text-align: center;
+}

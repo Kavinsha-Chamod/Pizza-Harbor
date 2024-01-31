@@ -1,6 +1,8 @@
+
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from "react-redux";
-import { Link } from 'react-router-dom';
+import { Link, Route, Router} from 'react-router-dom';
+import Editpizza from './Editpizza';
 
 
 export default function PrivateScreen() {
@@ -18,14 +20,16 @@ export default function PrivateScreen() {
     <div>
     <div className='row'>
     <div className='col-md-10'>
-    </div>
+    
     <h2 style={{fontSize:'35px'}}>Admin Panel</h2>
     <ul className='adminfunctions'>
-    <li><Link to='/admin/addpizza'>ADD NEW PIZZA</Link></li>
-      <li><Link to='/admin/userslist'>USER LIST</Link></li>
-      <li><Link to='/admin/pizzaslist'>PIZZAS LIST</Link></li>
-      <li><Link to='/admin/orderslist'>ORDERS LIST</Link></li>
+    <li><a href='/admin/addpizza'>ADD NEW PIZZA</a></li>
+      <li><a href='/admin/userslist'>USER LIST</a></li>
+      <li><a href='/admin/pizzaslist'>PIZZAS LIST</a></li>
+      <li><a href='/admin/orderslist'>ORDERS LIST</a></li>
     </ul>
+
+    </div>
     </div>
     </div>
     
