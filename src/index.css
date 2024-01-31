@@ -9,7 +9,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
   font-family: 'Montserrat', sans-serif !important;
 }
-
+.row{
+  justify-content: center !important;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -96,4 +98,19 @@ select{
 }
 .fa-trash{
   color: red !important;
+}
+.item{
+  text-align: left;
+  width: 250px;
+  margin: 10px;
+}
+.address{
+  text-align: left;
+  width: 250px;
+  margin: 10px;
+}
+.order-details{
+  text-align: left;
+  width: 350px;
+  margin: 10px;
 }
