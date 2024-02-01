@@ -50,4 +50,15 @@ router.post("/placeorder", async (req,res)=>{
   return res.status(400).json({message:"Something went wrong !" + error})
  }
 }) 
+
+router.post("/getuserorders",async (req,res)=>{
+  const {userid} = req.body
+  try{
+    const orders = await Order.find({userid: userid}).sort({_id: -1}) //sort method used to get orders by Date
+    res.send(orders)
+  }
+  catch(error){
+    return res.status(400).json({message: 'Something went wrong !'})
+  }
+})
 module.exports = router

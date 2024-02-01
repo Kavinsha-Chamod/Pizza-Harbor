@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from "react-redux";
 import Loading from "../components/Loading";
 import Error from "../components/Error";
-import { getAllPizzas } from '../actions/pizzaActions';
+import { getAllPizzas, deletePizza } from '../actions/pizzaActions';
 import { Link } from 'react-router-dom';
 
 export default function PizzasList() {
@@ -40,16 +40,14 @@ export default function PizzasList() {
           </td>
           <td>{pizza.category}</td>
           <td>
-  <i className='fa fa-trash m-2'></i>
-  <Link to={`/admin/editpizza/${pizza._id}`}><i className='fa fa-edit m-2'></i></Link>
-</td>
-          </tr>
-          
+              <i className='fa fa-trash m-2' onClick={()=>{dispatch(deletePizza(pizza._id))}}></i>
+              <Link to={`/admin/editpizza/${pizza._id}`}><i className='fa fa-edit m-2'></i></Link>
+          </td>
+        </tr>   
       })}
       </tbody>
       </table>
-      
-      </div>
+     </div>
       {loading && (<Loading/>)}
       {error && (<Error error="Something went wrong !"/>)}
     </div>
