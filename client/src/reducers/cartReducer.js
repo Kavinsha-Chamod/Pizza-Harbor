@@ -35,4 +35,16 @@ export const cartReducer = (state = { cartItems: [] }, action) => {
       return state;
   }
 };
+
+export const clearCartReducer = (state = {cartItems :[]}, action) => {
+  switch (action.type) {
+    case 'CLEAR_CART':
+      return {
+        ...state,
+        cartItems: [],
+      };
+    default:
+      return state;
+  }
+};
  

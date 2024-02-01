@@ -65,6 +65,7 @@ export default function OrdersScreen() {
                     Order Id - {order._id} <br />
                     Transaction Id - {order.paymentId} <br />
                     Order Amount - LKR.{order.orderAmount} <br />
+                    Order Status - {order.isDelivered ? 'Delivered' : 'Pending'} <br/> 
                     Date - {order.createdAt.substring(0, 10)}
                   </p>
                 </div>

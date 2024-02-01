@@ -17,7 +17,7 @@ export const placeOrder=(token, subtotal)=> async (dispatch, getState)=>{
 export const getUserOrders = () => async (dispatch ,getState) => {
 
   const currentUser = getState().loginUserReducer.currentUser
-  dispatch({ type: 'GET_USER_ORDERS_REQUEST' }); //calls the reducer
+  dispatch({ type: 'GET_USER_ORDERS_REQUEST' });
 
   try {
     const response = await axios.post('/api/orders/getuserorders',{userid: currentUser._id})
@@ -25,6 +25,18 @@ export const getUserOrders = () => async (dispatch ,getState) => {
     dispatch({ type: 'GET_USER_ORDERS_SUCCESS', payload :  response.data });
   } catch(error) {
     dispatch({ type: 'GET_USER_ORDERS_FAILED', payload : error });
+  }
+};
+
+export const getAllOrders = () => async (dispatch) => {
+  dispatch({ type: 'GET_ALL_ORDERS_REQUEST' });
+
+  try {
+    const response = await axios.post('/api/orders/getallorders');
+    console.log(response.data);
+    dispatch({ type: 'GET_ALL_ORDERS_SUCCESS', payload: response.data });
+  } catch (error) {
+    dispatch({ type: 'GET_ALL_ORDERS_FAILED', payload: error });
   }
 };
 
@@ -37,4 +49,6 @@ export const deliverOrder = (orderid) => async dispatch=>{
   } catch (error) {
     console.log(error)
   }
-}
+} 
+
+

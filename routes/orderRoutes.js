@@ -63,6 +63,15 @@ router.post("/getuserorders",async (req,res)=>{
   }
 })
 
+router.post('/getallorders', async (req, res) => {
+  try {
+    const orders = await Order.find().sort({_id: -1})
+    res.json(orders);
+  } catch (error) {
+    res.status(400).json({ error: 'Something went wrong !' })
+  }
+});
+
 router.post("/deliverorder",async (req,res)=>{
   const orderid = req.body.orderid
   try {

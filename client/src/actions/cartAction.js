@@ -43,4 +43,6 @@ export const deleteFromCart = (pizza) => (dispatch, getState) => {
   const cartItems = getState().cartReducer.cartItems;
   localStorage.setItem("cartItems", JSON.stringify(cartItems));
 };
+
+
  

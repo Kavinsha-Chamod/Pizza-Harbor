@@ -18,6 +18,7 @@ export default function RegisterScreen() {
   const dispatch = useDispatch()
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [aerror, setError] = useState('');
 
 
   const togglePasswordVisibility = () => {
@@ -28,35 +29,49 @@ export default function RegisterScreen() {
     setShowConfirmPassword(!showConfirmPassword);
   };
   
+  const validateForm = () => {
+    if (!name || !email || !password || !cpassword) {
+      setError('Please fill in all fields.');
+      return false;
+    }
 
-  function register(){
-    if(!name || !email || !password || !cpassword)
-    {
-      alert("Cannot be blank")
+    if (!isValidEmail(email)) {
+      setError('Please enter a valid email address.');
+      return false;
     }
-    else if(password!==cpassword)
-    {
-      alert("Passwords not matched !")
+
+    if (password !== cpassword) {
+      setError('Passwords do not match.');
+      return false;
     }
-    else{
+
+    setError('');
+    return true;
+  };
+
+  const isValidEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
+  const register = () => {
+    if (validateForm()) {
       const user={name,email,password}
       console.log(user);
       dispatch(registerUser(user))
     }
-  }
+  };
+
 
   return (
     <div>
       <div className="reg-screen row">
         <div className="col-md-5 mt-2 shadow-lg p-3 mb-5 bg-white rounded">
-
-
+        <h2 className='text-center'style={{fontSize:'35px'}}>REGISTER</h2>
         {loading && (<Loading/>)}
         {success && (<Success success='User Registered Successfully'/>)}
         {error && (<Error error='Email already registered'/>)}
-
-
-        <h2 className='text-center'style={{fontSize:'35px'}}>REGISTER</h2>
+        {aerror && <Error error={aerror} />}
         <div>
         <input required type="text" placeholder="Enter your Name" className="form-control" value={name} onChange={(e)=>{setName(e.target.value)}}/>
         <input required type="text" placeholder="Enter your Email" className="form-control" value={email} onChange={(e)=>{setEmail(e.target.value)}}/>

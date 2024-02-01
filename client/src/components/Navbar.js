@@ -7,7 +7,7 @@ export default function Navbar() {
   const userstate = useSelector((state) => state.loginUserReducer);
   const { currentUser } = userstate;
   const dispatch = useDispatch();
-  
+
   return (
     <div className="sticky-div">
       <nav className="navbar navbar-expand-lg shadow-lg p-3 mb-5 bg-white">
@@ -35,6 +35,13 @@ export default function Navbar() {
             {currentUser ? (
               <React.Fragment>
                 <li className="m-2">Welcome {currentUser.name} !</li>
+                {currentUser.isAdmin && (
+                  <li className="nav-item">
+                    <a className="nav-link" href="/admin">
+                      Admin
+                    </a>
+                  </li>
+                )}
                 <li className="nav-item">
                   <a className="nav-link" href="/cart">
                     Cart {cartstate.cartItems.length}

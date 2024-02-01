@@ -3,16 +3,16 @@ import { useDispatch, useSelector } from "react-redux";
 import Loading from "../components/Loading";
 import Error from "../components/Error";
 import { Link } from 'react-router-dom';
-import { deliverOrder, getUserOrders } from '../actions/orderActions';
+import { deliverOrder, getAllOrders } from '../actions/orderActions';
 
 export default function Orderslist() {
 
   const dispatch = useDispatch();
-  const orderstate = useSelector((state) => state.getUserOrdersReducer) 
+  const orderstate = useSelector((state) => state.orderReducer) 
   const {orders, error, loading} = orderstate;
-
+  
   useEffect(()=>{
-    dispatch(getUserOrders());
+    dispatch(getAllOrders());
   },[])
   return (
     <div>

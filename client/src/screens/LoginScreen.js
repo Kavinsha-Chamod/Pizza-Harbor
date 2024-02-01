@@ -11,6 +11,7 @@ export default function LoginScreen() {
   const[password, getPassword] = useState('')
   const [showPassword, setShowPassword] = useState(false);
   const dispatch = useDispatch()
+  const [aerror, setError] = useState('');
   const loginstate = useSelector(state => state.loginUserReducer)
   const {error,loading} = loginstate
 
@@ -25,22 +26,43 @@ export default function LoginScreen() {
     setShowPassword(!showPassword);
   };
 
-  function login(){
+
+  const validateForm = () => {
     if (!email || !password) {
-      alert('Please enter both email and password.');
-      return;
+      setError('Please fill in all fields.');
+      return false;
     }
-    const user={email,password}
+
+    if (!isValidEmail(email)) {
+      setError('Please enter a valid email address.');
+      return false;
+    }
+
+    setError('');
+    return true;
+  };
+
+  const isValidEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
+  const login = () => {
+    if (validateForm()) {
+      const user={email,password}
       console.log(user);
       dispatch(loginUser(user))
-  }
+    }
+  };
+
   return (
     <div>
       <div className="reg-screen row">
         <div className="col-md-5 mt-2 shadow-lg p-3 mb-5 bg-white rounded">
-        {loading && (<Loading/>)}
-        {error && (<Error error='Please try again !'/>)}
-        <h2 className='text-center'style={{fontSize:'35px'}}>LOG IN</h2>
+         <h2 className='text-center'style={{fontSize:'35px'}}>LOG IN</h2>
+         {loading && (<Loading/>)}
+        {aerror && <Error error={aerror} />}
+        {error && (<Error error='Invalid Credentials !'/>)}
         <div>
         <div>
         <input required type="text" placeholder="Enter your Email" className="form-control" value={email} onChange={(e)=>{getEmail(e.target.value)}}/>

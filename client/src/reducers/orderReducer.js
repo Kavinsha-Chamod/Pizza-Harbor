@@ -17,6 +17,30 @@ export const placeOrderReducer = (state={},action) =>{
 } 
 }
 
+export const orderReducer = (state ={}, action) => {
+  switch (action.type) {
+    case 'GET_ALL_ORDERS_REQUEST':
+      return {
+        ...state,
+        loading: true,
+      };
+    case 'GET_ALL_ORDERS_SUCCESS':
+      return {
+        ...state,
+        loading: false,
+        orders: action.payload,
+      };
+    case 'GET_ALL_ORDERS_FAILED':
+      return {
+        ...state,
+        loading: false,
+        error: action.payload,
+      };
+    default:
+      return state;
+  }
+};
+
 export const getUserOrdersReducer=(state = { orders : []},action)=>{
   switch(action.type)
   {
@@ -30,7 +54,7 @@ export const getUserOrdersReducer=(state = { orders : []},action)=>{
      orders : action.payload
      
    }
-   case 'GET_USER_ORDERS_PIZZAS_FAILED' : return{
+   case 'GET_USER_ORDERS_FAILED' : return{
      error : action.payload,
      loading : false
    }
