@@ -27,3 +27,14 @@ export const getUserOrders = () => async (dispatch ,getState) => {
     dispatch({ type: 'GET_USER_ORDERS_FAILED', payload : error });
   }
 };
+
+export const deliverOrder = (orderid) => async dispatch=>{
+  try {
+    const response = await axios.post('/api/orders/deliverorder', {orderid})
+    console.log(response);
+    alert('Order Delivered !')
+    window.location.reload();
+  } catch (error) {
+    console.log(error)
+  }
+}

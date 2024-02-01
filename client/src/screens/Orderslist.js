@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Loading from "../components/Loading";
 import Error from "../components/Error";
 import { Link } from 'react-router-dom';
-import { getUserOrders } from '../actions/orderActions';
+import { deliverOrder, getUserOrders } from '../actions/orderActions';
 
 export default function Orderslist() {
 
@@ -40,7 +40,7 @@ export default function Orderslist() {
             <td>{order.createdAt.substring(0,10)}</td>
             <td>
                {order.isDelivered ? (<h1>Delivered</h1>):
-              (<button className='btn'>Deliver</button>)
+              (<button className='btn' onClick={()=>{dispatch(deliverOrder(order._id))}}>Deliver</button>)
               }
             </td>
           </tr>
