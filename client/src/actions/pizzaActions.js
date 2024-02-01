@@ -43,12 +43,13 @@ export const updatePizza=(updatedpizza)=> async dispatch =>{
   dispatch({type: "UPDATE_PIZZA_REQUEST"})
 
   try {
-    const response = await axios.post('/api/pizzas/editpizza', {updatedpizza})
+    const response = await axios.post('/api/pizzas/editpizza',{updatedpizza})
     console.log(response)
     dispatch({type: "UPDATE_PIZZA_SUCCESS"})
-    window.location.href="/admin/pizzaslist"
+    
   } catch (error) {
     dispatch({type:"UPDATE_PIZZA_FAILED" , payload:error})
+    window.location.href="/admin/pizzaslist"
   }
 }
 

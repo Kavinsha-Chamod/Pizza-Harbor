@@ -11,10 +11,11 @@ router.post("/placeorder", async (req,res)=>{
   const customer = await stripe.customers.create({
     email: token.email,
     source:token.id
+    
   })
 
   const payment = await stripe.charges.create({
-    amount:subtotal*100,
+    amount:subtotal*100, 
     currency:'lkr',
     customer: customer.id,
     receipt_email: token.email
@@ -28,7 +29,7 @@ router.post("/placeorder", async (req,res)=>{
     const newOrder = new Order({
       name: currentUser.name,
       email: currentUser.email,
-      userid: currentUser.userid,
+      userid: currentUser._id,
       orderItems: cartItems,
       orderAmount:subtotal,
       shippingAddress:{street:token.card.address_line1,
@@ -36,14 +37,14 @@ router.post("/placeorder", async (req,res)=>{
       country: token.card.address_country,
       postalcode: token.card.address_zip
       },
-      transactionId: token.source.id
+      paymentId: payment.source.id
     })
     newOrder.save()
     
-    res.send('Payment Done !')
+    res.send('Order Placed !')
   }
   else{
-    res.send('Payment Failed !')
+    res.send('Order Failed !')
   }
  }catch(error){
   console.error('Stripe PaymentIntent Creation Error:', error);

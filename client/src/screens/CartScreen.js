@@ -25,10 +25,12 @@ export default function CartScreen() {
                     ={item.price}
                   </h1>
                   <h1 style={{display:'inline'}}> Quantity : </h1>
-                  <i className="fa fa-plus-circle" aria-hidden="true" onClick={()=>{dispatch(addToCart(item,item.quantity+1,item.varient))}}></i>
-                    <b>{item.quantity}</b>
                     <i className="fa fa-minus-circle" aria-hidden="true" onClick={()=>{dispatch(addToCart(item,item.quantity-1,item.varient))}}></i>
-                  <h1>Selected Varient : {item.varient}</h1>
+                   
+                  <b>{item.quantity}</b>
+                  <i className="fa fa-plus-circle" aria-hidden="true" onClick={()=>{dispatch(addToCart(item,item.quantity+1,item.varient))}}></i>
+                
+                     <h1>Selected Varient : {item.varient}</h1>
                 </div>
                 <div className="m-1 w-100">
                 <img className="m-5" src={item.image} style={{height:'60px', width:'120px'}}/></div>

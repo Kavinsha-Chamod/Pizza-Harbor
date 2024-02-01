@@ -66,11 +66,11 @@ export const updatePizzasReducer=(state={},action)=>{
    }
    case 'UPDATE_PIZZA_SUCCESS' : return{
      editloading : false,
-     editsuccess : true,
    }
    case 'UPDATE_PIZZA_FAILED' : return{
      editerror : action.payload,
-     editloading : false
+     editloading : false,
+     editsuccess : true,
    }
    default : return state
   }

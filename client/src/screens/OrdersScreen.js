@@ -10,7 +10,7 @@ export default function OrdersScreen() {
   const { orders, error, loading } = orderstate;
 
   console.log(orderstate);
-  console.log(orders);
+  console.log(orders); 
 
   useEffect(() => {
     dispatch(getUserOrders());

@@ -19,10 +19,8 @@ export default function Checkout({subtotal}) {
 
   return (
     <div>
-    {loading && (<Loading/>)}
     {success && (<Success success='Your Order placed successfully !'/>)}
-    {error && (<Error error='Something went wrong !'/>)}
-
+      {error && (<Error error='Something went wrong !'/>)}
       <StripeCheckout
         amount={subtotal * 100}
         shippingAddress
@@ -32,6 +30,7 @@ export default function Checkout({subtotal}) {
       >
         <button className='btn'>Pay Now</button>
       </StripeCheckout>
+      {loading && (<Loading/>)}
     </div>
   );
 }
