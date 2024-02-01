@@ -141,3 +141,12 @@ td, th, tr{
 .text-right{
   text-align: center;
 }
+.fa-icon{
+  position: relative;
+  right:20px;
+  bottom: 30px;
+  cursor: pointer;
+}
+.ff{
+  margin-top: 0% !important;
+}

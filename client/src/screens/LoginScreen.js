@@ -3,10 +3,13 @@ import {useDispatch, useSelector} from 'react-redux';
 import { loginUser } from "../actions/userActions";
 import Error from '../components/Error';
 import Loading from '../components/Loading';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 
 export default function LoginScreen() {
   const[email, getEmail] = useState('')
   const[password, getPassword] = useState('')
+  const [showPassword, setShowPassword] = useState(false);
   const dispatch = useDispatch()
   const loginstate = useSelector(state => state.loginUserReducer)
   const {error,loading} = loginstate
@@ -17,6 +20,10 @@ export default function LoginScreen() {
         window.location.href='/'
       }
   },[])
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
 
   function login(){
     if (!email || !password) {
@@ -35,8 +42,11 @@ export default function LoginScreen() {
         {error && (<Error error='Please try again !'/>)}
         <h2 className='text-center'style={{fontSize:'35px'}}>LOG IN</h2>
         <div>
+        <div>
         <input required type="text" placeholder="Enter your Email" className="form-control" value={email} onChange={(e)=>{getEmail(e.target.value)}}/>
-        <input required type="text" placeholder="Enter your Password" className="form-control" value={password} onChange={(e)=>{getPassword(e.target.value)}}/>
+        <input required type={showPassword ? 'text' : 'password'} placeholder="Enter your Password" className="form-control" value={password} onChange={(e)=>{getPassword(e.target.value)}}/>
+        <FontAwesomeIcon className='fa-icon' icon={showPassword ? faEyeSlash : faEye} onClick={togglePasswordVisibility} />
+        </div>
         <a className='anchor-tag' href='/register'>Click here to Register</a>
         <button onClick={login} className="btn mt-3">LOG IN</button>
         </div>
