@@ -1,26 +1,27 @@
 import React from 'react';
 import StripeCheckout from 'react-stripe-checkout';
 import { useDispatch, useSelector } from 'react-redux';
-import { placeOrder, clearCart } from '../actions/orderActions';
+import { placeOrder } from '../actions/orderActions';
 import Loading from "../components/Loading";
 import Success from "../components/Success";
 import Error from "../components/Error";
+import { clearCart } from '../actions/cartAction';
 
 
 export default function Checkout({subtotal}) {
+  const dispatch = useDispatch()
   const orderstate = useSelector((state)=>state.placeOrderReducer)
   const {loading, error, success} = orderstate
 
   const clearcartstate = useSelector((state)=>state.cartReducer)
   const {cartItems} = clearcartstate
-  const dispatch = useDispatch()
   
   function tokenHander(token) {
     console.log(token);
     dispatch(placeOrder(token, subtotal))
-    /*.then(()=>{
+    .then(()=>{
       dispatch(clearCart())
-    })*/
+    })
   }
 
   return (

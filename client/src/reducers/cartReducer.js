@@ -29,22 +29,13 @@ export const cartReducer = (state = { cartItems: [] }, action) => {
             (item) => item._id !== action.payload._id || item.varient !== action.payload.varient
           ),
         };
-      
-
-    default:
-      return state;
+        case 'CLEAR_CART':
+          return {
+            ...state,
+            cartItems: [],
+          };
+    default: return state;
   }
 };
 
-export const clearCartReducer = (state = {cartItems :[]}, action) => {
-  switch (action.type) {
-    case 'CLEAR_CART':
-      return {
-        ...state,
-        cartItems: [],
-      };
-    default:
-      return state;
-  }
-};
  
