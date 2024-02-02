@@ -1,4 +1,5 @@
 import axios from "axios";
+ 
 
 export const getAllPizzas = () => async dispatch => {
   dispatch({ type: 'GET_PIZZAS_REQUEST' }); //calls the reducer
@@ -58,18 +59,17 @@ export const updatePizza=(updatedpizza)=> async dispatch =>{
 }
 
 export const deletePizza=(pizzaid)=> async dispatch=>{
+  
   try {
     const confirmDelete = window.confirm('Are you sure you want to delete this pizza?');
     if (!confirmDelete) {
-      // If the user cancels the deletion, do nothing
       return;
     }
     const response = await axios.post("/api/pizzas/deletepizza",{pizzaid})
-    alert('Deleted !')
     console.log(response)
     window.location.reload()
   } catch (error) {
-    alert('Something went wrong')
     console.log(error)
+    alert('Something went wrong !')
   }
 }

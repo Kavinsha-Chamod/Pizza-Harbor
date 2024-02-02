@@ -45,6 +45,10 @@ export const logoutUser=()=>dispatch=>{
 
 export const deleteUser=(userid)=> async dispatch=>{
   try {
+    const confirmDelete = window.confirm('Are you sure you want to delete this pizza?');
+    if (!confirmDelete) {
+      return;
+    }
     await axios.post('/api/users/deleteuser', {userid})
     alert('User deleted !')
     window.location.reload()

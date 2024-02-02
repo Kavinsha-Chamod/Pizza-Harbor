@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from "react-redux";
 import Loading from "../components/Loading";
 import Error from "../components/Error";
-import { Link } from 'react-router-dom';
 import { deliverOrder, getAllOrders } from '../actions/orderActions';
 
 export default function Orderslist() {
