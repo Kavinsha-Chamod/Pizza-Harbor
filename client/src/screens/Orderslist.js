@@ -16,10 +16,10 @@ export default function Orderslist() {
   },[])
   return (
     <div>
-      <h1>Orders List</h1>
-      {loading && (<Loading/>)}
-      {error && (<Error error="Something went wrong !"/>)}
-      <table className='table table-striped table-bordered'>
+      <h2>ORDERS LIST</h2>
+      
+      <div className='ttable'>
+      <table className='table table-border'>
       <thead>
       <tr>
       <th>Order Id</th>
@@ -47,6 +47,9 @@ export default function Orderslist() {
         })}
       </tbody>
       </table>
+      </div>
+      {loading && (<Loading/>)}
+      {error && (<Error error="Something went wrong !"/>)}
     </div>
   );
 }

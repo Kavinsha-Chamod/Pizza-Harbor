@@ -14,10 +14,9 @@ export default function UserLists() {
   },[])
   return (
     <div>
-      <h1>User List</h1>
-      {loading && (<Loading/>)}
-      {error && (<Error error="Something went wrong !"/>)}
-     <table className='table table-stripe table-boarded'>
+      <h2>USERS LIST</h2>
+     <div className='ttable'>
+     <table className='table table-border'>
      <thead>
      <tr>
      <th>User Id</th>
@@ -37,6 +36,9 @@ export default function UserLists() {
      })}
      </tbody>
      </table>
+     </div>
+     {loading && (<Loading/>)}
+     {error && (<Error error="Something went wrong !"/>)}
     </div>
   )
 }

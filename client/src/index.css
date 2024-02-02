@@ -16,6 +16,17 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+#category-dropdown{
+  margin-top: 20px !important;
+  color: black !important;
+  background-color: white !important;
+  border-color: rgb(224, 224, 224) !important;
+  text-align: left !important;
+  color: rgb(82, 82, 82) !important;
+}
+.dropdown-selector{
+  color: rgb(82, 82, 82) !important ;
+}
 .reg-screen{
   justify-content: center;
 } 
@@ -27,6 +38,7 @@ input{
 .col-md-5{
   text-align: right;
 }
+
 .nav-link{
   color: black !important;
 }
@@ -138,6 +150,10 @@ td, th, tr{
   margin-left: 60px;
   margin-right: 60px;
 }
+.add-pizza{
+  margin-right: 15%;
+  margin-left: 15%;
+}
 .text-right{
   text-align: center;
 }
@@ -149,4 +165,12 @@ td, th, tr{
 }
 .ff{
   margin-top: 0% !important;
+}
+.pt{
+  margin-top: 10px !important;
+  margin-bottom: 5px !important;
+}
+.mp{
+  font-size: 16px !important;
+  margin-bottom: 0px !important;
 }

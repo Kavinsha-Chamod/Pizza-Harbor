@@ -16,6 +16,7 @@ const Editpizza = () => {
   const [image, setImage] = useState("");
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
+  const [aerror, setError] = useState('');
 
   const getpizzabyidstate = useSelector((state) => state.getPizzaByIdReducer);
   const { pizza, error, loading } = getpizzabyidstate;
@@ -43,6 +44,16 @@ const Editpizza = () => {
   function formHandler(e) {
     e.preventDefault();
 
+    if (!name || !regularPrice || !mediumPrice || !largePrice  || !description || !image) {
+      setError('Please fill in all fields.');
+      return;
+    }
+  
+    if (isNaN(Number(regularPrice)) || isNaN(Number(mediumPrice)) || isNaN(Number(largePrice))) {
+      setError('Prices must be valid numbers.');
+      return;
+    }
+
     const updatedpizza = {
       _id: pizzaid,
       name,
@@ -56,17 +67,19 @@ const Editpizza = () => {
 
   return (
     <div>
-      <h1>EDIT PIZZA</h1>
+      <div className="add-pizza">
       <div className="text-right">
+      <h2>EDIT PIZZA</h2>
         <form onSubmit={formHandler}>
           {loading && (<Loading />)}
+          {aerror && <Error error={aerror} />}
           {error && <Error error="Something went worng !" />}
           {editsuccess && (<Success success='Pizza details Edited !'/>)}
           {editloading && (<Loading />)}
           <input
             className="form-control"
             type="text"
-            placeholder="name"
+            placeholder="Enter New Pizza Name"
             value={name}
             onChange={(e) => {
               setName(e.target.value.toUpperCase());
@@ -75,7 +88,7 @@ const Editpizza = () => {
           <input
             className="form-control"
             type="text"
-            placeholder="small varient price"
+            placeholder="Enter New Small Pizza Price"
             value={regularPrice}
             onChange={(e) => {
               setRegularPrice(e.target.value);
@@ -84,7 +97,7 @@ const Editpizza = () => {
           <input
             className="form-control"
             type="text"
-            placeholder="medium varient price"
+            placeholder="Enter New Medium Pizza Price"
             value={mediumPrice}
             onChange={(e) => {
               setMediumPrice(e.target.value);
@@ -93,7 +106,7 @@ const Editpizza = () => {
           <input
             className="form-control"
             type="text"
-            placeholder="large varient price"
+            placeholder="Enter New Large Pizza Price"
             value={largePrice}
             onChange={(e) => {
               setLargePrice(e.target.value);
@@ -103,7 +116,7 @@ const Editpizza = () => {
             className="form-control"
             type="text"
             placeholder="category"
-            value={category}
+            value={category} readOnly
             onChange={(e) => {
               setCategory(e.target.value);
             }}
@@ -132,6 +145,7 @@ const Editpizza = () => {
         </form>
       </div>
     </div>
+  </div>
   );
 };
 

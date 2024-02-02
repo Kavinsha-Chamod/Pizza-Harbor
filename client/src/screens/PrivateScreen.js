@@ -21,18 +21,15 @@ export default function PrivateScreen() {
     <div className='row'>
     <div className='col-md-10'>
     
-    <h2 style={{fontSize:'35px'}}>Admin Panel</h2>
+    <h2 style={{fontSize:'35px'}}>ADMIN PANEL</h2>
     <ul className='adminfunctions'>
     <li><a href='/admin/addpizza'>ADD NEW PIZZA</a></li>
       <li><a href='/admin/userslist'>USER LIST</a></li>
       <li><a href='/admin/pizzaslist'>PIZZAS LIST</a></li>
       <li><a href='/admin/orderslist'>ORDERS LIST</a></li>
     </ul>
-
     </div>
     </div>
     </div>
-    
-    
   )
 }

@@ -20,7 +20,6 @@ export default function PizzasList() {
       
       <div className='ttable'>
       <table className='table table-border'>
-
       <thead className='thead-dark'>
       <tr>
       <th>Name</th>

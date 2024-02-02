@@ -29,7 +29,7 @@ export default function Pizza({ pizza }) {
 
       <div className="flex-container">
         <div className="w-100 m-1">
-          <p>Varients</p>
+          <p className="pt">Select a Varient</p>
           <select
             className="form-control"
             value={varient}
@@ -43,7 +43,7 @@ export default function Pizza({ pizza }) {
           </select>
         </div>
         <div className="w-100 m-1">
-          <p>Quantity</p>
+          <p className="pt">Select Quantity</p>
           <select
             className="form-control"
             value={quantity}
@@ -59,9 +59,9 @@ export default function Pizza({ pizza }) {
       </div>
       <div className="flex-container">
         <div className="w-100 m-1">
-          <h1 className="mt-2">
+          <h5 className="mt-2">
             Price : LKR.{pizza.prices[0][varient] * quantity}
-          </h1>
+          </h5>
         </div>
         <div className="m-1 w-100">
           <button className="btn" onClick={addCart}>
@@ -72,11 +72,13 @@ export default function Pizza({ pizza }) {
 
       <Modal show={show} centered>
         <Modal.Header>
-          <Modal.Title>{pizza.name}</Modal.Title>
+          <Modal.Title>{pizza.name}<br/><p className="mp">Pizza Type - {pizza.category}</p></Modal.Title>
+          
         </Modal.Header>
         <Modal.Body className="modal-body">
           <img src={pizza.image} className="modal-image"></img>
           <p>{pizza.description}</p>
+          
         </Modal.Body>
         <Modal.Footer>
           <button className="btn" onClick={handleClose}>

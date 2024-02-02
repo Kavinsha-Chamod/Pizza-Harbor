@@ -32,7 +32,9 @@ export const addPizza=(pizza)=> async dispatch =>{
     const response = await axios.post('/api/pizzas/addpizza', {pizza})
     console.log(response)
     dispatch({type: "ADD_PIZZA_SUCCESS"})
-    
+    setTimeout(() => {
+      window.location.reload();
+    }, 1000);
   } catch (error) {
     dispatch({type:"ADD_PIZZA_FAILED" , payload:error})
   }
@@ -46,7 +48,9 @@ export const updatePizza=(updatedpizza)=> async dispatch =>{
     const response = await axios.post('/api/pizzas/editpizza',{updatedpizza})
     console.log(response)
     dispatch({type: "UPDATE_PIZZA_SUCCESS"})
-    
+    setTimeout(() => {
+      window.location.reload();
+    }, 1000);
   } catch (error) {
     dispatch({type:"UPDATE_PIZZA_FAILED" , payload:error})
     window.location.href="/admin/pizzaslist"
@@ -55,6 +59,11 @@ export const updatePizza=(updatedpizza)=> async dispatch =>{
 
 export const deletePizza=(pizzaid)=> async dispatch=>{
   try {
+    const confirmDelete = window.confirm('Are you sure you want to delete this pizza?');
+    if (!confirmDelete) {
+      // If the user cancels the deletion, do nothing
+      return;
+    }
     const response = await axios.post("/api/pizzas/deletepizza",{pizzaid})
     alert('Deleted !')
     console.log(response)
